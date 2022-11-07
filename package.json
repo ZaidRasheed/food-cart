@@ -1,5 +1,6 @@
 {
-  "name": "food-app-ts",
+  "homepage": "https://zaidrasheed.github.io/food-cart",
+  "name": "food-cart-ts",
   "private": true,
   "version": "0.0.0",
   "type": "module",
