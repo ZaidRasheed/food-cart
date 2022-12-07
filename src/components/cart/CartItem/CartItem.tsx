@@ -11,45 +11,45 @@ type Items = {
 type Props = {
   item: Items
 }
-export default function (props: Props) {
+export default function ({ item }: Props) {
 
   const { addItem, removeItem } = CartData()
 
   const handleAdd = () => {
     addItem({
-      id: props.item.id,
-      name: props.item.name,
-      description: props.item.description,
-      price: props.item.price,
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: item.price,
     }, 1)
   }
 
   const handleRemove = () => {
     removeItem({
-      id: props.item.id,
-      name: props.item.name,
-      description: props.item.description,
-      price: props.item.price,
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: item.price,
     }, 1)
   }
   const handleRemoveAll = () => {
     removeItem({
-      id: props.item.id,
-      name: props.item.name,
-      description: props.item.description,
-      price: props.item.price,
+      id: item.id,
+      name: item.name,
+      description: item.description,
+      price: item.price,
     }, -1)
   }
 
-  const price = `$${props.item.price.toFixed(2)}`;
+  const price = `$${item.price.toFixed(2)}`;
 
   return (
     <li className={styles['cart-item']}>
       <div>
-        <h2>{props.item.name}</h2>
+        <h2>{item.name}</h2>
         <div className={styles.summary}>
           <span className={styles.price}>{price}</span>
-          <span className={styles.amount}>x{props.item.amount}</span>
+          <span className={styles.amount}>x{item.amount}</span>
         </div>
       </div>
       <div className={styles.actions}>

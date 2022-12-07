@@ -26,7 +26,9 @@ export default function Modal({ children, closeCart }: Props) {
             {ReactDOM.createPortal(
                 <ModalOverlay
                     closeCart={closeCart}
-                >{children}</ModalOverlay>,
+                >
+                    {children}
+                </ModalOverlay>,
                 portalElement
             )}
         </>

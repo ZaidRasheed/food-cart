@@ -9,7 +9,7 @@ type Item = {
     description: string,
     price: number,
 }
-type Items = {
+export type Items = {
     id: string,
     name: string,
     description: string,
@@ -21,7 +21,8 @@ interface AppContextInterface {
     items: Items[],
     total: number,
     addItem: (item: Item, amount: number) => void,
-    removeItem: (item: Item, amount: number) => void
+    removeItem: (item: Item, amount: number) => void,
+    emptyCart: () => void
 }
 
 const CartContext = createContext({} as AppContextInterface)
@@ -82,14 +83,20 @@ export const CartProvider = (props: Props) => {
                     return prev - (item.price * amount);
                 })
             }
+
         }
+    }
+    const emptyCart = () => {
+        setItems([])
+        setTotal(0)
     }
 
     const values = {
         items,
         total,
         addItem,
-        removeItem
+        removeItem,
+        emptyCart
     }
     return (
         <CartContext.Provider value={values}>
